@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1743546295489354657}
   - component: {fileID: 4451048159135563977}
   - component: {fileID: 6469027344170227922}
-  - component: {fileID: 5492500251912105574}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -86,23 +85,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &5492500251912105574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704195764230016584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1001 &936329652978083690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +93,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1743546295489354657}
     m_Modifications:
+    - target: {fileID: 275192966838571753, guid: f2d4ccc84fec2644d89dca86bd11c9b8, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648093549374428158, guid: f2d4ccc84fec2644d89dca86bd11c9b8, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3035963895001094818, guid: f2d4ccc84fec2644d89dca86bd11c9b8, type: 3}
       propertyPath: m_Name
       value: CarnageIndicator
@@ -198,13 +188,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7914718380251264103, guid: f2d4ccc84fec2644d89dca86bd11c9b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7694802502578644912}
   m_SourcePrefab: {fileID: 100100000, guid: f2d4ccc84fec2644d89dca86bd11c9b8, type: 3}
 --- !u!224 &6239837871234289771 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6514133192736208641, guid: f2d4ccc84fec2644d89dca86bd11c9b8, type: 3}
   m_PrefabInstance: {fileID: 936329652978083690}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7000907971161871117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7914718380251264103, guid: f2d4ccc84fec2644d89dca86bd11c9b8, type: 3}
+  m_PrefabInstance: {fileID: 936329652978083690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &7694802502578644912
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7000907971161871117}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 073815cf52a0a1a4d922b303ccf1aaf8, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 073815cf52a0a1a4d922b303ccf1aaf8, type: 2}
+  - {fileID: 7400000, guid: 2c0730b97432d694d896c94c5008183b, type: 2}
+  - {fileID: 7400000, guid: 52f79c22550ef3f44983d19831c3081e, type: 2}
+  - {fileID: 7400000, guid: b43e0749a8f000d469d901334c2d334c, type: 2}
+  - {fileID: 7400000, guid: dd7663da1ba5d4b488ef9d6d2811db41, type: 2}
+  - {fileID: 7400000, guid: 34f3c39c4b4de784c8c5d95a81cd87c2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &5510269699594375302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,9 +232,61 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1743546295489354657}
     m_Modifications:
+    - target: {fileID: 305367679787991410, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284381386736154721, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292082758953086595, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335420501224347856, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533901970507678824, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798298437349199561, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074911005080564991, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700324653807792831, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902186958519459707, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571238746255620212, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5673509009097271635, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
       propertyPath: m_Name
       value: Speedometer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959520836673510046, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422401431033738166, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516531703115669208, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7734423825850725799, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
       propertyPath: m_Pivot.x
@@ -295,6 +366,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7734423825850725799, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286405563617737677, guid: 74e808e778d91134b88e0a4c730a5313, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
