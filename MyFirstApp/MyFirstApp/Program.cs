@@ -2,17 +2,20 @@
 {
     static void Main(string[] args)
     {
+        Console.WriteLine("Enter a number:");
         if (!Int32.TryParse(Console.ReadLine(), out var a))
         {
             Console.WriteLine("Not a number");
             return;
         }
+        Console.WriteLine("Enter a number:");
         if (!Int32.TryParse(Console.ReadLine(), out var b))
         {
             Console.WriteLine("Not a number");
             return;
         }
 
+        Console.WriteLine("Enter a sign ^ or | or &");
         var s = Console.ReadLine();
         if (s.Length == 0 || s.Length > 1)
         {
