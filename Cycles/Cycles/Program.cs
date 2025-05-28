@@ -35,7 +35,7 @@ namespace HomeWork
             {
                 for (int j = 1; j <= 5; j++)
                 {
-                    Console.WriteLine((i * j).ToString().PadLeft(4));
+                    Console.Write($"{i * j}\t");
                 }
                 Console.WriteLine();
             }
