@@ -10,17 +10,18 @@ namespace Classes
     public class Unit
     {
         private float _health;
-        private float _armor;
         public string Name { get; }
         public float Health => _health;
-        public int Damage { get; } = 5;
-        public float Armor { get; } = 0.6f;
+        public int Damage { get; }
+        public float Armor { get; }
 
         public Unit() : this(name: "Unknown Unit") { }
         public Unit(string name)
         {
             Name = name;
             _health = 100f;
+            Damage = 5;
+            Armor = 0.6f;
         }
         public float RealHealth()
         {
