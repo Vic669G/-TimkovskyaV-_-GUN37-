@@ -9,34 +9,44 @@ namespace Classes
 {
     public class Unit
     {
-        private float _health;
-        public string Name { get; }
-        public float Health => _health;
-        public int Damage { get; }
-        public float Armor { get; }
+        private float health;
 
-        public Unit() : this(name: "Unknown Unit") { }
-        public Unit(string name)
+        public string Name { get; }
+        public float Health => health;
+        public float Armor { get; } = 0.6f;
+        public Interval DamageRange { get; }
+
+        public Unit() : this("Unknown Unit") { }
+
+        public Unit(string name) : this(name, 0, 5) { }
+
+        public Unit(string name, int minDamage, int maxDamage)
         {
             Name = name;
-            _health = 100f;
-            Damage = 5;
-            Armor = 0.6f;
+            health = 100f;
+            DamageRange = new Interval(minDamage, maxDamage);
         }
-        public float RealHealth()
+
+        public float GetRealHealth()
         {
-            return _health * (1f + Armor);
+            return health * (1f + Armor);
         }
+
         public bool SetDamage(float value)
         {
-            _health -= value * Armor;
-            if (_health <= 0f)
+            health -= value * Armor;
+            if (health <= 0f)
             {
-                _health = 0f;
+                health = 0f;
                 return true;
             }
             return false;
         }
 
+        public override string ToString()
+        {
+            return $"{Name} (Health: {Health}, Damage: {DamageRange})";
+        }
     }
 }
+
