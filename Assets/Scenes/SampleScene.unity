@@ -342,9 +342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60856da3b2f5418dafb5e43a23c62aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _save: {fileID: 0}
-  _index: 0
-  _duration: 0
 --- !u!65 &1693182626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -443,8 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9666ac784e4149f8bfa323c3666015aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _save: {fileID: 0}
-  _currentDelay: 0
   _delay: 0.5
   _duration: 5
 --- !u!114 &1693182631
@@ -459,7 +454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3226310a310541faa9835d4026986bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _json: {fileID: 0}
+  _json: {fileID: 4900000, guid: 281b86880335fd047888def39a3596df, type: 3}
+  _records: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

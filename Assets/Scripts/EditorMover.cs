@@ -8,19 +8,27 @@ namespace DefaultNamespace
 	{
 		private PositionSaver _save;
 		private float _currentDelay;
-		
-		//todo comment: Что произойдёт, если _delay > _duration?
-		//Эффект может не успеть начаться, поэтому мы его не увидим.
-		private float _delay = 0.5f;
-		private float _duration = 5f;
 
-		private void Start()
+        //todo comment: Что произойдёт, если _delay > _duration?
+        //Эффект может не успеть начаться, поэтому мы его не увидим.
+        [SerializeField, Range(0.2f, 1.0f)]
+        private float _delay = 0.5f;
+        [SerializeField, Min(0.2f)]
+        private float _duration = 5f;
+
+        private void Start()
 		{
             //todo comment: Почему этот поиск производится здесь, а не в начале метода Update?
             //Поиск _save и очистака его данных делаются в Start, потому что это инициализация объекта. В Update это бы затрудняло производительность и нарушало работу логики. 
             _save = GetComponent<PositionSaver>();
 			_save.Records.Clear();
-		}
+
+            if (_duration <= _delay)
+            {
+                _duration = _delay * 5f;
+                Debug.LogWarning($"{nameof(EditorMover)}: _duration слишком маленькое, установлено значение {_duration}", this);
+            }
+        }
 
 		private void Update()
 		{

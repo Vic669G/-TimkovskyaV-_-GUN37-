@@ -7,16 +7,15 @@ namespace DefaultNamespace
 	public class ReplayMover : MonoBehaviour
 	{
 		private PositionSaver _save;
-
 		private int _index;
 		private PositionSaver.Data _prev;
 		private float _duration;
 
 		private void Start()
 		{
-            ////todo comment: зачем нужны эти проверки?
-            ////!TryGetComponent(out _save) - проверяет есть ли на объекте компонент PositionSaver. _save.Records.Count == 0 - проверяет, что список записей не пустой.
-            if (!TryGetComponent(out _save) || _save.Records.Count == 0)
+			////todo comment: зачем нужны эти проверки?
+			////!TryGetComponent(out _save) - проверяет есть ли на объекте компонент PositionSaver. _save.Records.Count == 0 - проверяет, что список записей не пустой.
+			if (!TryGetComponent(out _save) || _save.Records.Count == 0)
 			{
 				Debug.LogError("Records incorrect value", this);
 				//todo comment: Для чего выключается этот компонент?
@@ -48,9 +47,10 @@ namespace DefaultNamespace
 			//todo comment: Зачем нужна эта проверка?
 			//Защищает от деления на ноль.
 			if (float.IsNaN(delta)) delta = 0f;
-            //todo comment: Опишите, что происходит в этой строчке так подробно, насколько это возможно
-            //Vector3.Lerp - линейная интерполяция между a и b. _prev.Position - предыдущая точка из записей. curr.Position - текущая точка из записей. delta - показывает как далеко объект должен находиться между двумя точками в данный момент времени. Этот механизм позволяет воспроизводить движение объекта точно так же, как оно было записано.
-            transform.position = Vector3.Lerp(_prev.Position, curr.Position, delta);
+			//todo comment: Опишите, что происходит в этой строчке так подробно, насколько это возможно
+			//Vector3.Lerp - линейная интерполяция между a и b. _prev.Position - предыдущая точка из записей. curr.Position - текущая точка из записей. delta - показывает как далеко объект должен находиться между двумя точками в данный момент времени. Этот механизм позволяет воспроизводить движение объекта точно так же, как оно было записано.
+			transform.position = Vector3.Lerp(_prev.Position, curr.Position, delta);
 		}
-	}
+    }
+
 }

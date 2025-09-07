@@ -5,19 +5,39 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-	public class PositionSaver : MonoBehaviour
+    [System.Serializable]
+    public class PositionSaver : MonoBehaviour
 	{
-		public struct Data
+        [System.Serializable]
+        public struct Data
 		{
 			public Vector3 Position;
 			public float Time;
 		}
 
-		private TextAsset _json;
+        [ReadOnly]
+        [SerializeField]
+        [Tooltip("Чтобы заполнить это поле, используйте контекстное меню в инспекторе 'Create File'.")]
+        private TextAsset _json;
 
-		public List<Data> Records { get; private set; }
+        [SerializeField, HideInInspector]
+        private List<Data> _records = new List<Data>();
+        
+        public List<Data> Records
+        {
+            get => _records;
+            private set => _records = value;
+        }
 
-		private void Awake()
+        [System.Serializable]
+        private class Wrapper<T>
+        {
+            [SerializeField]
+            public List<T> Items = new List<T>();
+        }
+
+
+        private void Awake()
 		{
 			//todo comment: Что будет, если в теле этого условия не сделать выход из метода?
 			//Игра может упасть или скрипт перестанет работать.
@@ -27,12 +47,21 @@ namespace DefaultNamespace
 				Debug.LogError("Please, create TextAsset and add in field _json");
 				return;
 			}
-			
-			JsonUtility.FromJsonOverwrite(_json.text, this);
-			//todo comment: Для чего нужна эта проверка (что она позволяет избежать)?
-			//Она гарантирует, что всегда будет рабочий список Records, и если он ещё не был создан, то создаётся новый список. И это помогает избежать NullReferenceException, лишней инициализации и неинцилиализированного состояния.
-			if (Records == null)
-				Records = new List<Data>(10);
+
+            if (!string.IsNullOrEmpty(_json.text))
+            {
+                var wrapper = JsonUtility.FromJson<Wrapper<Data>>(_json.text);
+                Records = wrapper != null ? wrapper.Items : new List<Data>();
+            }
+            else
+            {
+                Records = new List<Data>();
+            }
+
+            //todo comment: Для чего нужна эта проверка (что она позволяет избежать)?
+            //Она гарантирует, что всегда будет рабочий список Records, и если он ещё не был создан, то создаётся новый список. И это помогает избежать NullReferenceException, лишней инициализации и неинцилиализированного состояния.
+            if (Records == null)
+                Records = new List<Data>(10);
 		}
 
 		private void OnDrawGizmos()
@@ -55,7 +84,6 @@ namespace DefaultNamespace
 			}
 		}
 		
-#if UNITY_EDITOR
 		[ContextMenu("Create File")]
 		private void CreateFile()
 		{
@@ -90,10 +118,22 @@ namespace DefaultNamespace
 			}
 		}
 
-		private void OnDestroy()
+        private void OnDestroy()
 		{
-			//todo logic...
-		}
+#if UNITY_EDITOR
+            if (_json == null || Records == null) return;
+
+            var w = new Wrapper<Data> { Items = Records };
+            string json = JsonUtility.ToJson(w, true);
+
+            string assetPath = UnityEditor.AssetDatabase.GetAssetPath(_json);
+            if (string.IsNullOrEmpty(assetPath)) return;
+
+            System.IO.File.WriteAllText(assetPath, json);
+            UnityEditor.AssetDatabase.ImportAsset(assetPath);
+            UnityEditor.AssetDatabase.SaveAssets();
+            UnityEditor.AssetDatabase.Refresh();
 #endif
-	}
+        }
+    }
 }
