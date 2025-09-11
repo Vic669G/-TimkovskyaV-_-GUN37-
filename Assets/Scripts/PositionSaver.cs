@@ -20,21 +20,8 @@ namespace DefaultNamespace
         [Tooltip("Чтобы заполнить это поле, используйте контекстное меню в инспекторе 'Create File'.")]
         private TextAsset _json;
 
-        [SerializeField, HideInInspector]
-        private List<Data> _records = new List<Data>();
-        
-        public List<Data> Records
-        {
-            get => _records;
-            private set => _records = value;
-        }
-
-        [System.Serializable]
-        private class Wrapper<T>
-        {
-            [SerializeField]
-            public List<T> Items = new List<T>();
-        }
+        [field: SerializeField, HideInInspector]
+        public List<Data> Records { get; private set; } = new List<Data>();
 
 
         private void Awake()
@@ -50,8 +37,8 @@ namespace DefaultNamespace
 
             if (!string.IsNullOrEmpty(_json.text))
             {
-                var wrapper = JsonUtility.FromJson<Wrapper<Data>>(_json.text);
-                Records = wrapper != null ? wrapper.Items : new List<Data>();
+                var arr = JsonUtility.FromJson<DataArray>(_json.text);
+                Records = arr != null && arr.Items != null ? new List<Data>(arr.Items) : new List<Data>();
             }
             else
             {
@@ -123,8 +110,8 @@ namespace DefaultNamespace
 #if UNITY_EDITOR
             if (_json == null || Records == null) return;
 
-            var w = new Wrapper<Data> { Items = Records };
-            string json = JsonUtility.ToJson(w, true);
+            var arr = new DataArray { Items = Records.ToArray() };
+            string json = JsonUtility.ToJson(arr, true);
 
             string assetPath = UnityEditor.AssetDatabase.GetAssetPath(_json);
             if (string.IsNullOrEmpty(assetPath)) return;
@@ -134,6 +121,11 @@ namespace DefaultNamespace
             UnityEditor.AssetDatabase.SaveAssets();
             UnityEditor.AssetDatabase.Refresh();
 #endif
+        }
+        [System.Serializable]
+        private class DataArray
+        {
+            public Data[] Items;
         }
     }
 }
