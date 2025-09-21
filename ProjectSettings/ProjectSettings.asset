@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: a817b161854a1764faef1432e49edebf
+  productGUID: bc042fd43385668469294bbc33950dba
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: TimkovskyaV_37
+  productName: test
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -677,14 +677,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: TimkovskyaV_37
+  metroPackageName: test
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: TimkovskyaV_37
+  metroApplicationDescription: test
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -752,13 +752,13 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 2
+  activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: e65ddce5-397d-4c70-aa76-9bfac9544924
+  cloudProjectId: f07f5dfb-089c-4944-8369-c00730b2bb2b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TimkovskyaV_37
-  organizationId: vic669g
+  projectName: test
+  organizationId: uskirdova
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
